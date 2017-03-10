@@ -5,6 +5,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Tasks } from '../api/tasks.js';
 
 import Task from './Task.jsx';
+import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 
 // App component - represents the whole app
 class App extends Component {
@@ -58,6 +59,7 @@ class App extends Component {
 						<input type="checkbox" readOnly checked={this.state.hideCompleted} onClick={this.toggleHideCompleted.bind(this)}/>
 						Hide Completed Tasks
 					</label>
+					<AccountsUIWrapper />
 					<form onSubmit={this.handleSubmit.bind(this)} className="new-task">
 						<input type="text" ref="textInput" placeholder="Type to add new tasks"/>
 					</form>
