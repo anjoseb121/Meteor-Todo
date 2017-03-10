@@ -44,7 +44,7 @@ class App extends Component {
 			filteredTasks = filteredTasks.filter(task => !task.checked);
 		}
 		// Return objects from props
-		return this.props.tasks.map((task) => (
+		return filteredTasks.map((task) => (
 			<Task key={task._id} task={task} />
 		));
 	}
