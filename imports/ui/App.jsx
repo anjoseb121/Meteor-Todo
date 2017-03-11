@@ -44,9 +44,13 @@ class App extends Component {
 			filteredTasks = filteredTasks.filter(task => !task.checked);
 		}
 		// Return objects from props
-		return filteredTasks.map((task) => (
-			<Task key={task._id} task={task} />
-		));
+		return filteredTasks.map((task) => {
+			const currentUserId = this.props.currentUser && this.props.currentUser._id;
+			const showPrivateButton = task.owner === currentUserId;
+			return (
+				<Task key={task._id} task={task} showPrivateButton={showPrivateButton} />
+			);
+		});
 	}
 	// Render method to client
 	render() {
